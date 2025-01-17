@@ -7,6 +7,7 @@
     background-color: black;
     position: relative;
     overflow: hidden;
+    text-wrap: nowrap;
 }
 
 
@@ -21,6 +22,7 @@
 
     &-clone {
         @extend .title;
+
     }
 }
 
@@ -38,28 +40,28 @@
 
 @keyframes scroll1 {
     0% {
-        transform: translateX(0);
+        transform: translate(0);
     }
 
     20% {
-        transform: translateX(0);
+        transform: translate(0);
     }
 
     100% {
-        transform: translateX(-100%);
+        transform: translate(-150%);
     }
 }
 
 @keyframes scroll2 {
     0% {
-        transform: translateX(100%);
+        transform: translate(150%);
     }
 
     20% {
-        transform: translateX(100%);
+        transform: translate(150%);
     }
 
     100% {
-        transform: translateX(0);
+        transform: translate(0);
     }
 }

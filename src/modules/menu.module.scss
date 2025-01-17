@@ -113,19 +113,21 @@
         filter: brightness(0.7);
 
         .menu-item {
-            padding: 0 calc(3*var(--pixel-size));
+            padding: 0 calc(2*var(--pixel-size));
         }
     }
 
     &.active {
         .text {
             color: transparent;
+            filter: brightness(0.8)
         }
     }
 
     &:active {
         .text {
             color: transparent;
+            filter: brightness(0.8)
         }
     }
 }
@@ -133,13 +135,12 @@
 .menu-item {
     width: 100%;
     height: 100%;
-    padding: 0 calc(4*var(--pixel-size));
     background-image: url(/public/media/images/steel-texture.png);
     background-size: auto var(--pixel-size);
     background-repeat: repeat;
     white-space: nowrap;
     overflow: hidden;
-    padding: 0 calc(4*var(--pixel-size));
+    padding: 0 calc(3*var(--pixel-size));
     box-sizing: border-box;
     vertical-align: middle;
     line-height: calc(14*var(--pixel-size));
@@ -161,10 +162,14 @@
 .color {
     position: absolute;
     top: 0;
-    left: calc(4*var(--pixel-size));
+    left: calc(3*var(--pixel-size));
     mix-blend-mode: hue;
 }
 
 .menu-item-border:hover .color {
-    left: calc(3*var(--pixel-size));
+    left: calc(2*var(--pixel-size));
+}
+
+@keyframes scroll {
+
 }

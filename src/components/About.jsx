@@ -2,14 +2,8 @@ import aboutStyles from '../modules/about.module.scss'
 import photo from '/public/media/images/photo.png'
 import Modal from './Modal'
 import Button from './Button'
-import { useState } from 'react'
-import { useAspectRatio } from '../hooks/useIsMobile'
 
 const About = ({ setShowAbout, color }) => {
-    const [aspectRatio, setAspectRatio] =  useState()
-
-    useAspectRatio(aspectRatio, setAspectRatio)
-
     return (
         <Modal setShowModal={setShowAbout} color={color} width={'70vw'}>
             <h1>Hola!</h1>

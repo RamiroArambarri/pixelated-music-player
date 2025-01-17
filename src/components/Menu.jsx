@@ -2,18 +2,18 @@ import songs from "../data"
 import menuStyles from "../modules/menu.module.scss"
 import { useRef, useState } from "react"
 import useColor from "../hooks/useColor"
-import useIsMobile from "../hooks/useIsMobile"
+import useAspectRatio from "../hooks/useAspectRatio"
 import arrow from "/public/media/images/arrow.png"
 
 
 const Menu = ({ currentSong, setCurrentSong }) => {
     const [showMenu, setShowMenu] = useState(false)
+    const aspectRatio = useAspectRatio()
 
-
-
+        console.log(aspectRatio)
     return (
         <>
-            {useIsMobile(1.64) && showMenu && <div className={menuStyles.background}></div>}
+            {aspectRatio < 1.64 && showMenu && <div className={menuStyles.background}></div>}
             <ul className={`${menuStyles.menu} ${!showMenu && menuStyles.compressed}`} onClick={() => setShowMenu(!showMenu)}>
                 {songs.map((song, index) => <MenuItem index={index} currentSong={currentSong} song={song} setCurrentSong={setCurrentSong} key={index} />)}
                 <img src={arrow} />
@@ -22,11 +22,12 @@ const Menu = ({ currentSong, setCurrentSong }) => {
     )
 }
 
-const MenuItem = ({ index, currentSong, song, setCurrentSong, color }) => {
+const MenuItem = ({ index, currentSong, song, setCurrentSong }) => {
     const colorRef = useRef(null)
 
 
     useColor(colorRef, 'color', songs[index].color)
+
 
     const clickHandler = (ev, index) => {
         setCurrentSong(index)

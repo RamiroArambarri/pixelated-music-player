@@ -12,11 +12,13 @@ import Volume from './components/Volume'
 import ViewInYoutube from './components/ViewInYoutube'
 import useAudioNodes from './hooks/useAudioNodes'
 import LogoButton from './components/LogoButton'
-import useIsMobile from './hooks/useIsMobile'
+import useAspectRatio from './hooks/useAspectRatio'
 
 
 const App = () => {
   console.log('v1.0.1')
+
+  const aspectRatio = useAspectRatio()
 
   const [currentSong, setCurrentSong] = useState(0)
   const [showAbout, setShowAbout] = useState(false)
@@ -65,7 +67,7 @@ const App = () => {
       <Menu currentSong={currentSong} setCurrentSong={setCurrentSong} />
       <div className="right-container">
 
-        {!useIsMobile() ?
+        {aspectRatio > 1 ?
           <div className="top-container">
             {audioContext && audioNodes ? <Spectrum source={audioNodes[0]} context={audioContext} state='on' dir='lr' /> : <Spectrum state={'off'} />}
             <MainScreen currentSong={currentSong} setShowViewInYoutube={setShowViewInYoutube} />
@@ -82,7 +84,7 @@ const App = () => {
 
         }
         <TitleScreen color={songs[currentSong].color}>{songs[currentSong].extTitle}</TitleScreen>
-        {!useIsMobile(0.58) ?
+        {aspectRatio > 0.58 ?
           <div className='bottom-container'>
             <LogoButton onClick={() => setShowAbout(true)} />
             <div className='controls-container'>
