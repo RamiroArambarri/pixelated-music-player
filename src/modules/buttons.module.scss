@@ -1,0 +1,192 @@
+@import './_variables.module.scss';
+
+.button {
+    appearance: none;
+    width: calc(13*var(--pixel-size));
+    height: calc(13*var(--pixel-size));
+    background-color: transparent;
+    border: none;
+    margin: calc(3.5*var(--pixel-size));
+    padding: 0;
+    background-size: cover;
+    cursor: pointer;
+
+    &:hover {
+        background-image: url(/public/media/images/button-pulsed.png);
+    }
+}
+
+@mixin icon {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+.icon {
+    &-previous {
+        @include icon;
+        background-image: url(/public/media/images/button-previous.png);
+
+        &:active {
+            background-image: url(/public/media/images/button-previous-shine.png);
+        }
+    }
+
+    &-next {
+        @extend .icon-previous;
+        transform: scaleX(-1);
+    }
+
+    &-play {
+        @include icon;
+        background-image: url(/public/media/images/button-play.png);
+
+        &:active {
+            background-image: url(/public/media/images/button-play-shine.png);
+        }
+
+        &-selected {
+            @include icon;
+            background-image: url(/public/media/images/button-play-shine.png);
+        }
+    }
+
+
+
+    &-pause {
+        @include icon;
+        background-image: url(/public/media/images/button-pause.png);
+
+        &:active {
+            background-image: url(/public/media/images/button-pause-shine.png);
+        }
+
+        &-selected {
+            @include icon;
+            background-image: url(/public/media/images/button-pause-shine.png);
+        }
+    }
+
+    &-instagram {
+        @include icon;
+        background-image: url(/public/media/images/button-instagram.png);
+
+        &:active {
+            background-image: url(/public/media/images/button-instagram-shine.png);
+        }
+    }
+
+    &-github {
+        @include icon;
+        background-image: url(/public/media/images/button-github.png);
+
+        &:active {
+            background-image: url(/public/media/images/button-github-shine.png);
+        }
+    }
+
+    &-linkedin {
+        @include icon;
+        background-image: url(/public/media/images/button-linkedin.png);
+
+        &:active {
+            background-image: url(/public/media/images/button-linkedin-shine.png);
+        }
+    }
+
+    &-youtube {
+        @include icon;
+        background-image: url(/public/media/images/button-youtube.png);
+
+        &:active {
+            background-image: url(/public/media/images/button-youtube-shine.png);
+        }
+    }
+
+    &-close {
+        @include icon;
+        background-image: url(/public/media/images/button-close.png);
+        float: right;
+
+        &:active {
+            background-image: url(/public/media/images/button-close-shine.png);
+        }
+    }
+}
+
+.color {
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: hue;
+
+    mask-size: cover;
+
+    &-pause {
+        @extend .color;
+        mask-image: url(/public/media/images/button-pause.png);
+    }
+
+    &-play {
+        @extend .color;
+        mask-image: url(/public/media/images/button-play.png);
+    }
+
+    &-previous {
+        @extend .color;
+        mask-image: url(/public/media/images/button-previous.png);
+    }
+
+    &-next {
+        @extend .color;
+        mask-image: url(/public/media/images/button-previous.png);
+    }
+
+    &-close {
+        @extend .color;
+        mask-image: url(/public/media/images/button-close.png);
+    }
+}
+
+.button-logo {
+    @extend .button;
+    height: calc(14*var(--pixel-size));
+    background-image: url(/public/media/images/button-logo-background.png);
+    background-position: center 100%;
+    mask-image: url(/public/media/images/button-logo-mask.png);
+    mask-size: cover;
+    position: absolute;
+    left: 10%;
+    top: 20%;
+
+    &:hover {
+        background-image: url(/public/media/images/button-logo-background.png);
+        animation: logo-animation .5s ease;
+        animation-fill-mode: forwards;
+    }
+
+    &:active {
+        filter: brightness(1.2)
+    }
+
+    div {
+        width: 100%;
+        height: 100%;
+        background-image: url(/public/media/images/button-logo-icon.png);
+        background-size: cover;
+    }
+
+
+    @media(max-width: $breakpoint5) {
+        position: static;
+    }
+}
+
+@keyframes logo-animation {
+    0% {
+        background-position: center 100%;
+    }
+
+    100% {
+        background-position: center 0%;
+    }
+}

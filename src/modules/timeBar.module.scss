@@ -1,0 +1,69 @@
+@import './_variables.module.scss';
+
+.time-bar {
+    width: var(--time-bar-width);
+    height: calc(3*var(--pixel-size));
+    max-width: 80%;
+    position: relative;
+    margin: 0 auto;
+}
+
+.main-rectangle {
+    width: calc(100% - 4* var(--pixel-size));
+    height: calc(3*var(--pixel-size));
+    background-color: black;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: var(--pixel-size);
+    position: relative;
+}
+
+.long-rectangle {
+    width: 100%;
+    height: var(--pixel-size);
+    background-color: black;
+    margin: 0 auto;
+    position: absolute;
+    left: 0;
+    top: var(--pixel-size);
+    z-index: -1;
+}
+
+.progress-bar {
+    width: 0;
+    height: var(--pixel-size);
+    background-image: url(/public/media/images/progress-bar-background.png);
+    background-size: calc(4*var(--pixel-size));
+}
+
+.color {
+    width:100%;
+    height: 100%;
+    mix-blend-mode: hue;
+}
+
+.range {
+    width: calc(100% - 2*var(--pixel-size));
+    position: absolute;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    top: var(--pixel-size);
+    left: var(--pixel-size);
+    appearance: none;
+    height: var(--pixel-size);
+    cursor: pointer;
+
+    &::-webkit-slider-thumb {
+        visibility: hidden;
+    }
+
+    &:hover::-webkit-slider-thumb {
+        appearance: none;
+        visibility: visible;
+        border-radius: 0;
+        height: var(--pixel-size);
+        width: calc(3*var(--pixel-size));
+        background-color: #999999;
+    }
+}

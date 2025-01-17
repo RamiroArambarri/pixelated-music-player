@@ -1,0 +1,17 @@
+@import './_variables.module.scss';
+
+.photo {
+    float: right;
+    width: 30%;
+    height: auto;
+    border: solid rgb(106, 94, 106) calc(2*var(--pixel-size));
+
+    
+    @media(max-width: $breakpoint1) {
+        width: 20%;
+    }
+
+    @media(max-width: $breakpoint3) {
+        width: 30%;
+    }
+}

@@ -1,0 +1,51 @@
+@import './_variables.module.scss';
+
+.screen-container {
+    position: relative;
+    width: var(--main-screen-width);
+    height: var(--main-screen-height);
+    background-size: cover;
+    cursor: pointer;
+
+    &:hover {
+        .shine {
+            background-position: calc(2*var(--pixel-size));
+        }
+    }
+}
+
+.mask {
+    width: 100%;
+    height: 100%;
+    background-image: url(/public/media/images/main-screen-mask.png);
+    background-size: cover;
+}
+
+.screen {
+    width: 100%;
+    height: auto;
+    mask-image: url(/public/media/images/main-screen-mask.png);
+    mask-size: 100%;
+}
+
+.shine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-image: url(/public/media/images/main-screen-shine.png);
+    background-size: cover;
+}
+
+.screen-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-image: url(/public/media/images/main-screen-border.png);
+    background-size: cover;
+}

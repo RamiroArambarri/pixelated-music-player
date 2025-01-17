@@ -1,0 +1,50 @@
+@import './_variables.module.scss';
+
+.spectrum-div {
+    display: flex;
+    margin: 0 calc(10*var(--pixel-size));
+    height: calc(34*var(--pixel-size));
+
+    @media(max-width: $breakpoint2) {
+        margin: 0 calc(2*var(--pixel-size));
+    }
+
+    @media(max-width: $breakpoint3) {
+        margin: 0 calc(.5*var(--pixel-size));
+    }
+}
+
+.spectrum-bar-container {
+    box-sizing: border-box;
+    height: 100%;
+    width: calc(3*var(--pixel-size));
+    background-color: rgb(43, 0, 32);
+    display: flex;
+    align-items: end;
+    padding: var(--pixel-size);
+    margin: var(--pixel-size);
+}
+
+.spectrum-bar {
+    float: down;
+    margin: 0 auto;
+    min-height: var(--pixel-size);
+    ;
+    width: var(--pixel-size);
+    background-image: url(/public/media/images/gradient.png);
+    background-size: 100%;
+    max-height: 100%;
+    background-position: 0 100%;
+    position: relative;
+}
+
+.color {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+
+    mix-blend-mode: hue;
+    opacity: .4;
+}

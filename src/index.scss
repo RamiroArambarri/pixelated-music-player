@@ -1,0 +1,72 @@
+@import './modules/_variables.module.scss';
+
+
+body {
+  margin: 0;
+  padding: 0;
+  image-rendering: pixelated;
+  font-family: Nokia;
+  font-size: calc(7*var(--pixel-size));
+}
+
+#root {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100svh;
+}
+
+.right-container {
+  width: calc(100vw - var(--menu-width));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+
+  @media(max-width: $breakpoint1) {
+    width: 100%;
+  }
+
+  @media(max-width: $breakpoint3) {
+    justify-content: space-evenly;
+    
+  }
+
+  @media(max-width: $breakpoint4) {
+    padding: calc(30vh - 100vw/3) 0;
+    justify-content: space-between;
+    
+  }
+}
+
+.controls-container {
+  text-align: center;
+}
+
+.top-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
+}
+
+.bottom-container {
+  width: 100%;
+  position: relative;
+}
+
+a {
+  color: black;
+  text-decoration: underline;
+
+  &:hover {
+    color: white;
+  }
+}
+
+
+.spectrum-container {
+  display: flex
+}

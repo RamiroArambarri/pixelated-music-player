@@ -1,0 +1,65 @@
+@import './_variables.module.scss';
+
+.title-screen {
+    height: var(--title-screen-height);
+    width: var(--title-screen-width);
+    max-width: 80vw;
+    background-color: black;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.title {
+    font-size: calc(7*var(--pixel-size-landscape));
+    line-height: var(--title-screen-height);
+    vertical-align: middle;
+    margin: 0 2rem;
+    padding: 0 calc(4*var(--pixel-size-landscape));
+    width: 100%;
+    position: absolute;
+
+    &-clone {
+        @extend .title;
+    }
+}
+
+.border {
+    width: 100%;
+    height: 100%;
+    background-image: url(/public/media/images/title-screen-left-border.png), url(/public/media/images/title-screen-right-border.png), url(/public/media/images/title-screen-top-bottom-borders.png);
+    background-size: contain, contain, auto 100%;
+    background-repeat: no-repeat, no-repeat, repeat-x;
+    background-position: left, right, right;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+@keyframes scroll1 {
+    0% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes scroll2 {
+    0% {
+        transform: translateX(100%);
+    }
+
+    20% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}

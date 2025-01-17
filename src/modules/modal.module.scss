@@ -1,0 +1,36 @@
+@import './_variables.module.scss';
+
+.modal-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100svh;
+    width: 100vw;
+    background-color: rgb(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-container {
+    z-index: 5;
+    background-color: rgb(112, 112, 112);
+    background-image: url(/public/media/images/modal-left-top-corner.png), url(/public/media/images/modal-right-top-corner.png), url(/public/media/images/modal-left-bottom-corner.png),
+        url(/public/media/images/modal-right-bottom-corner.png), url(/public/media/images/modal-top-border.png), url(/public/media/images/modal-left-border.png),
+        url(/public/media/images/modal-right-border.png), url(/public/media/images/modal-bottom-border.png);
+    background-position: top left, top right, bottom left, bottom right, top, left, right, bottom;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-x, repeat-y, repeat-y, repeat-x;
+    background-size: calc(6*var(--pixel-size)) auto, calc(6*var(--pixel-size)) auto, calc(6*var(--pixel-size)) auto, calc(6*var(--pixel-size)) auto,
+        auto calc(6*var(--pixel-size)), calc(6*var(--pixel-size)), calc(6*var(--pixel-size)) auto, auto calc(6*var(--pixel-size));
+    padding: calc(10*var(--pixel-size));
+    font-size: calc(4.5*var(--pixel-size));
+    overflow: hidden;
+
+    @media(max-width: $breakpoint3){
+        padding: calc(7*var(--pixel-size));
+    }
+}
+
+.modal-container>button:first-of-type {
+    float: right;
+}

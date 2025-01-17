@@ -1,0 +1,19 @@
+@import './_variables.module.scss';
+
+.title {
+    font-size: calc(7*var(--pixel-size));
+    text-align: center;
+}
+
+.options {
+    display: flex;
+    justify-content: space-evenly;
+
+    a {
+        display: block;
+        height: calc(10*var(--pixel-size));
+        width: calc(10*var(--pixel-size));
+        cursor: pointer;
+        font-size: calc(7*var(--pixel-size));
+    }
+}

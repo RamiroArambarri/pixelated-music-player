@@ -1,0 +1,23 @@
+@import './_variables.module.scss';
+
+.background {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  height: 100svh;
+  width: 100vw;
+  background-color: rgb(112, 112, 112);
+  background-image: url(/public/media/images/body-left-top-corner.png), url(/public/media/images/body-right-top-corner.png), url(/public/media/images/body-left-bottom-corner.png),
+    url(/public/media/images/body-right-bottom-corner.png), url(/public/media/images/body-top-border.png), url(/public/media/images/body-left-border.png),
+    url(/public/media/images/body-right-border.png), url(/public/media/images/body-bottom-border.png);
+  background-position: top left, top right, bottom left, bottom right, top, left, right, bottom;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-x, repeat-y, repeat-y, repeat-x;
+  background-size: $border-width + svh auto, $border-width + svh auto, $border-width + svh auto, $border-width + svh auto,
+    auto $border-width + svh, $border-width + svh auto, $border-width + svh auto, auto $border-width + svh;
+
+  @media (orientation: portrait) {
+    background-size: $border-width + vw auto, $border-width + vw auto, $border-width + vw auto, $border-width + vw auto,
+      auto $border-width + vw, $border-width + vw auto, $border-width + vw auto, auto $border-width + vw;
+  }
+}

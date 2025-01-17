@@ -1,0 +1,73 @@
+@import './_variables.module.scss';
+
+.volume-div {
+    height: 100%;
+    position: absolute;
+    right: 15%;
+    top: -20%;
+
+    @media(max-width: $breakpoint5) {
+        position: relative;
+        right: 0;
+        top: 0;
+        height: calc(7*var(--pixel-size));
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+    }
+}
+
+.volume-icon {
+    width: calc(5*var(--pixel-size));
+    height: calc(7*var(--pixel-size));
+    background-image: url(/public/media/images/volume-icon.png);
+    background-size: cover;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    display: block;
+    margin: 100% auto 0;
+    padding: 0;
+
+    &-muted {
+        @extend .volume-icon;
+        background-image: url(/public/media/images/volume-icon-muted.png);
+    }
+
+    @media(max-width: $breakpoint5) {
+        order: 1;
+        margin: 0;
+        transform: rotate(90deg);
+        position: absolute;
+        left: calc(-14*var(--pixel-size));
+        top: 0;
+    }
+}
+
+.volume-bar {
+    display: block;
+    writing-mode: vertical-lr;
+    direction: rtl;
+    appearance: none;
+    width: var(--pixel-size);
+    background-color: black;
+    overflow: hidden;
+    cursor: pointer;
+    margin: 0 auto;
+    height: 70%;
+
+    @media(max-width: $breakpoint5) {
+        writing-mode: horizontal-tb;
+        direction: ltr;
+        width: 50vw;
+        height: calc(2*var(--pixel-size));
+        order: 2;
+    }
+
+    &::-webkit-slider-thumb {
+        appearance: none;
+        width: var(--pixel-size);
+        height: 0;
+        filter: brightness(2) saturate(.7);
+    }
+}

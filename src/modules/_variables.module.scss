@@ -1,0 +1,48 @@
+$breakpoint1: 164svh;
+$breakpoint2: 113svh;
+$breakpoint3: 100svh;
+$breakpoint4: 79svh;
+$breakpoint5: 58svh;
+
+
+$border-width: 15;
+
+:root {
+  --pixel-size: #{$border-width/25 + svh};
+
+  @media (orientation: portrait) {
+    --pixel-size: #{$border-width/25 + vw};
+  }
+
+  @media (max-width: $breakpoint5) {
+    --pixel-size: #{$border-width/19 + vw};
+  }
+
+  --main-screen-width: calc(111*var(--pixel-size));
+  --main-screen-height: calc(60*var(--pixel-size));
+  --title-screen-width: calc(159*var(--pixel-size));
+  --title-screen-height: calc(21*var(--pixel-size));
+  --menu-width: calc(81*var(--pixel-size));
+  --menu-border-width: calc(8*var(--pixel-size));
+  --time-bar-width: var(--main-screen-width);
+}
+
+$pixel-size-landscape: $border-width/25 + svh;
+
+$main-screen-width: calc(111*$pixel-size-landscape);
+$main-screen-height: calc(60*$pixel-size-landscape);
+
+$title-screen-width: calc(159*$pixel-size-landscape);
+$title-screen-height: calc(21*$pixel-size-landscape);
+
+$menu-width: calc(81*$pixel-size-landscape);
+
+$time-bar-width: $main-screen-width;
+
+
+
+
+@font-face {
+  font-family: Nokia;
+  src: url('/public/fonts/nokiafc22.ttf') format("truetype");
+}
