@@ -16,7 +16,7 @@ import useAspectRatio from './hooks/useAspectRatio'
 
 
 const App = () => {
-  console.log('v1.1.0')
+  console.log('v1.2.0')
 
   const aspectRatio = useAspectRatio()
 
@@ -69,17 +69,17 @@ const App = () => {
 
         {aspectRatio > 1.28 &&
           < div className="top-container">
-            {audioContext && audioNodes ? <Spectrum source={audioNodes[0]} context={audioContext} state='on' dir='lr' /> : <Spectrum state={'off'} />}
+            {audioContext && audioNodes ? <Spectrum source={audioNodes[0]} context={audioContext} state='on' dir='lr' color={songs[currentSong].color} /> : <Spectrum state={'off'} color={songs[currentSong].color}/>}
             <MainScreen currentSong={currentSong} setShowViewInYoutube={setShowViewInYoutube} />
-            {(audioContext && audioNodes) ? <Spectrum source={audioNodes[1]} context={audioContext} state='on' dir='rl' /> : <Spectrum state={'off'} />}
+            {(audioContext && audioNodes) ? <Spectrum source={audioNodes[1]} context={audioContext} state='on' dir='rl' color={songs[currentSong].color} /> : <Spectrum state={'off'} color={songs[currentSong].color} />}
           </div>
         }
         {aspectRatio < 1.28 && aspectRatio > 0.69 &&
           <>
             < div className="top-container">
-              {audioContext && audioNodes ? <Spectrum source={audioNodes[0]} context={audioContext} state='on' dir='lr' bins={2}/> : <Spectrum state={'off'} bins={2}/>}
+              {audioContext && audioNodes ? <Spectrum source={audioNodes[0]} context={audioContext} state='on' dir='lr' bins={2} color={songs[currentSong].color} /> : <Spectrum state={'off'} bins={2} color={songs[currentSong].color} />}
               <MainScreen currentSong={currentSong} setShowViewInYoutube={setShowViewInYoutube} />
-              {(audioContext && audioNodes) ? <Spectrum source={audioNodes[1]} context={audioContext} state='on' dir='rl' bins={2}/> : <Spectrum state={'off'} bins={2}/>}
+              {(audioContext && audioNodes) ? <Spectrum source={audioNodes[1]} context={audioContext} state='on' dir='rl' bins={2} color={songs[currentSong].color} /> : <Spectrum state={'off'} bins={2} color={songs[currentSong].color} />}
             </div>
           </>
         }
@@ -87,8 +87,8 @@ const App = () => {
           <>
             <MainScreen currentSong={currentSong} setShowViewInYoutube={setShowViewInYoutube} />
             <div className='spectrum-container'>
-              {audioContext && audioNodes ? <Spectrum source={audioNodes[0]} context={audioContext} state='on' dir='lr' bins={8} /> : <Spectrum state={'off'} bins={8} />}
-              {(audioContext && audioNodes) ? <Spectrum source={audioNodes[1]} context={audioContext} state='on' dir='rl' bins={8} /> : <Spectrum state={'off'} bins={8} />}
+              {audioContext && audioNodes ? <Spectrum source={audioNodes[0]} context={audioContext} state='on' dir='lr' bins={10} color={songs[currentSong].color} /> : <Spectrum state={'off'} bins={10} color={songs[currentSong].color} />}
+              {(audioContext && audioNodes) ? <Spectrum source={audioNodes[1]} context={audioContext} state='on' dir='rl' bins={10} color={songs[currentSong].color} /> : <Spectrum state={'off'} bins={10} color={songs[currentSong].color} />}
             </div>
           </>
         }

@@ -9,6 +9,10 @@
         margin: 0 var(--pixel-size);
         height: calc(55*var(--pixel-size));
     }
+
+    @media(max-width: $portrait-version) {
+        margin: 0;
+    }
 }
 
 .spectrum-bar-container {
@@ -20,6 +24,7 @@
     align-items: end;
     padding: var(--pixel-size);
     margin: var(--pixel-size);
+    overflow: hidden;
 }
 
 .spectrum-bar {
@@ -29,19 +34,16 @@
     ;
     width: var(--pixel-size);
     background-image: url(/public/media/images/gradient.png);
-    background-size: 100%;
+    background-size: var(--pixel-size);
     max-height: 100%;
     background-position: 0 100%;
-    position: relative;
 }
 
 .color {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    @extend .spectrum-bar;
     height: 100%;
-    width: 100%;
-
+    background-image: none;
     mix-blend-mode: hue;
-    opacity: .4;
+    opacity: .5;
+
 }

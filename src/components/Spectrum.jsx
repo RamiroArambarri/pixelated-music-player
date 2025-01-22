@@ -1,10 +1,12 @@
 import { useRef, createRef, useEffect } from "react";
 import spectrumStyles from "../modules/spectrum.module.scss"
+import useColor from "../hooks/useColor";
 
-const Spectrum = ({ source, context, state, dir, bins = 4 }) => {
+const Spectrum = ({ source, context, state, dir, bins = 4, color }) => {
   const analyser = useRef(null)
   const animationFrameId = useRef(null)
   const barRef = useRef(Array.from({ length: bins }, () => createRef()));
+  const colorRef = useRef(Array.from({ length: bins }, () => createRef()));
   const values = useRef(new Uint8Array(16))
 
   const updateSpectrum = () => {
@@ -17,11 +19,8 @@ const Spectrum = ({ source, context, state, dir, bins = 4 }) => {
         } else {
           bar.current.style.height = `${150 * 10 * Math.floor(values.current[Math.floor(13 - index * 9 / (bins - 1))] / 10) / 255}%`;
         }
-
       }
-    });
-
-
+    })
     animationFrameId.current = requestAnimationFrame(updateSpectrum);
   };
 
@@ -38,6 +37,11 @@ const Spectrum = ({ source, context, state, dir, bins = 4 }) => {
     }
   }, [state])
 
+  useEffect(() => {
+    if (!colorRef.current) return
+    colorRef.current.forEach(ref => ref.current.style.backgroundColor = color)
+  }, [color])
+
 
   return (
     < div className={spectrumStyles['spectrum-div']} >
@@ -47,7 +51,11 @@ const Spectrum = ({ source, context, state, dir, bins = 4 }) => {
             <div
               className={spectrumStyles['spectrum-bar']}
               ref={ref}
-            ></div>
+            >
+              <div ref={colorRef.current[index]}
+                className={spectrumStyles['color']}
+              ></div>
+            </div>
           </div>
         ))
       }
@@ -56,4 +64,3 @@ const Spectrum = ({ source, context, state, dir, bins = 4 }) => {
 }
 
 export default Spectrum
-
