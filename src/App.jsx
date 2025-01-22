@@ -16,7 +16,7 @@ import useAspectRatio from './hooks/useAspectRatio'
 
 
 const App = () => {
-  console.log('v1.0.1')
+  console.log('v1.1.0')
 
   const aspectRatio = useAspectRatio()
 
@@ -67,13 +67,23 @@ const App = () => {
       <Menu currentSong={currentSong} setCurrentSong={setCurrentSong} />
       <div className="right-container">
 
-        {aspectRatio > 1 ?
-          <div className="top-container">
+        {aspectRatio > 1.28 &&
+          < div className="top-container">
             {audioContext && audioNodes ? <Spectrum source={audioNodes[0]} context={audioContext} state='on' dir='lr' /> : <Spectrum state={'off'} />}
             <MainScreen currentSong={currentSong} setShowViewInYoutube={setShowViewInYoutube} />
             {(audioContext && audioNodes) ? <Spectrum source={audioNodes[1]} context={audioContext} state='on' dir='rl' /> : <Spectrum state={'off'} />}
           </div>
-          :
+        }
+        {aspectRatio < 1.28 && aspectRatio > 0.69 &&
+          <>
+            < div className="top-container">
+              {audioContext && audioNodes ? <Spectrum source={audioNodes[0]} context={audioContext} state='on' dir='lr' bins={2}/> : <Spectrum state={'off'} bins={2}/>}
+              <MainScreen currentSong={currentSong} setShowViewInYoutube={setShowViewInYoutube} />
+              {(audioContext && audioNodes) ? <Spectrum source={audioNodes[1]} context={audioContext} state='on' dir='rl' bins={2}/> : <Spectrum state={'off'} bins={2}/>}
+            </div>
+          </>
+        }
+        {aspectRatio < 0.69 &&
           <>
             <MainScreen currentSong={currentSong} setShowViewInYoutube={setShowViewInYoutube} />
             <div className='spectrum-container'>
@@ -81,8 +91,11 @@ const App = () => {
               {(audioContext && audioNodes) ? <Spectrum source={audioNodes[1]} context={audioContext} state='on' dir='rl' bins={8} /> : <Spectrum state={'off'} bins={8} />}
             </div>
           </>
-
         }
+
+
+
+
         <TitleScreen color={songs[currentSong].color}>{songs[currentSong].extTitle}</TitleScreen>
         {aspectRatio > 0.58 ?
           <div className='bottom-container'>
@@ -102,8 +115,9 @@ const App = () => {
           </>
         }
 
-      </div>
-      {showAbout && <About setShowAbout={setShowAbout} color={songs[currentSong].color} />}
+      </div >
+      {showAbout && <About setShowAbout={setShowAbout} color={songs[currentSong].color} />
+      }
       {showViewInYoutube && <ViewInYoutube setShowViewInYoutube={setShowViewInYoutube} color={songs[currentSong].color} currentSong={currentSong} />}
     </>
   )

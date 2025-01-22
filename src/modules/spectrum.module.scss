@@ -3,14 +3,11 @@
 .spectrum-div {
     display: flex;
     margin: 0 calc(10*var(--pixel-size));
-    height: calc(34*var(--pixel-size));
+    height: calc(36*var(--pixel-size));
 
-    @media(max-width: $breakpoint2) {
-        margin: 0 calc(2*var(--pixel-size));
-    }
-
-    @media(max-width: $breakpoint3) {
-        margin: 0 calc(.5*var(--pixel-size));
+    @media(max-width: $square-version) {
+        margin: 0 var(--pixel-size);
+        height: calc(55*var(--pixel-size));
     }
 }
 

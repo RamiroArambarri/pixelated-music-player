@@ -1,14 +1,14 @@
 import volumeStyles from "../modules/volume.module.scss"
 import { useEffect, useRef, useState } from 'react'
 import songs from "../data"
-import useIsMobile from "../hooks/useIsMobile"
+import useAspectRatio from "../hooks/useAspectRatio"
 
 const Volume = ({ songRef, currentSong }) => {
     const volumeBarRef = useRef(1)
     const lastVolume = useRef(1)
     const [muted, setMuted] = useState(false)
     const [thumbStyle, setThumbStyle] = useState()
-    const [isMobile, setIsMobile] = useState(useIsMobile(0.58))
+    const aspectRatio = useAspectRatio()
 
     const changeHandler = (ev) => {
         if (!songRef.current) return;
@@ -36,7 +36,7 @@ const Volume = ({ songRef, currentSong }) => {
                 }`
         )
 
-        if (isMobile) {
+        if (aspectRatio < 0.58) {
             setThumbStyle(
                 `.${volumeStyles['volume-bar']}::-webkit-slider-thumb {
                        box-shadow: -20vh 0 0 20vh ${songs[currentSong].color};

@@ -6,7 +6,7 @@
     height: calc(13*var(--pixel-size));
     background-color: transparent;
     border: none;
-    margin: calc(3.5*var(--pixel-size));
+    margin: calc(3.5*var(--pixel-size)) calc(3.5*var(--pixel-size)) calc(7*var(--pixel-size));
     padding: 0;
     background-size: cover;
     cursor: pointer;
@@ -156,7 +156,7 @@
     mask-size: cover;
     position: absolute;
     left: 10%;
-    top: 20%;
+    bottom: 0;
 
     &:hover {
         background-image: url(/public/media/images/button-logo-background.png);
@@ -176,7 +176,7 @@
     }
 
 
-    @media(max-width: $breakpoint5) {
+    @media(max-width: 58svh) {
         position: static;
     }
 }

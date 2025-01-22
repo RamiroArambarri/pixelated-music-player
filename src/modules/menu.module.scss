@@ -27,7 +27,7 @@
     align-items: flex-start;
     list-style: none;
 
-    @media (max-width: $breakpoint1) {
+    @media (max-width: $menu-breakpoint-1) {
         width: calc(var(--menu-width) + var(--menu-border-width));
         position: absolute;
         border-right: solid rgb(175, 162, 117) var(--menu-border-width);
@@ -37,7 +37,7 @@
         cursor: pointer;
     }
 
-    @media (max-width: $breakpoint2) {
+    @media (max-width: $square-version) {
         position: absolute;
         border-right: none;
         border-bottom: solid rgb(175, 162, 117) calc(8*var(--pixel-size));
@@ -57,7 +57,7 @@
         transform: rotate(180deg);
         display: none;
 
-        @media (max-width: $breakpoint1) {
+        @media (max-width: $menu-breakpoint-1) {
             display: inline;
             position: absolute;
             right: calc(-6.5*var(--pixel-size));
@@ -66,7 +66,7 @@
             transform: rotate(180deg);
         }
 
-        @media (max-width: $breakpoint2) {
+        @media (max-width: $square-version) {
             bottom: calc(-7.5*var(--pixel-size));
             right: calc(50%);
             transform: rotate(-90deg);
@@ -78,7 +78,7 @@
     left: calc(-1* var(--menu-width));
     bottom: 0;
 
-    @media (max-width: $breakpoint2) {
+    @media (max-width: $square-version) {
         left: 0;
         top: calc(-90svh + var(--menu-border-width));
     }
@@ -87,7 +87,7 @@
     img {
         transform: rotate(0);
 
-        @media (max-width: $breakpoint2) {
+        @media (max-width: $square-version) {
             right: calc(50%);
             transform: rotate(90deg);
         }
@@ -113,7 +113,7 @@
         filter: brightness(0.7);
 
         .menu-item {
-            padding: 0 calc(2*var(--pixel-size));
+            padding: 0 calc(1*var(--pixel-size));
         }
     }
 
@@ -140,13 +140,13 @@
     background-repeat: repeat;
     white-space: nowrap;
     overflow: hidden;
-    padding: 0 calc(3*var(--pixel-size));
+    padding: 0 calc(2*var(--pixel-size));
     box-sizing: border-box;
     vertical-align: middle;
     line-height: calc(14*var(--pixel-size));
     position: relative;
 
-    @media(max-width: $breakpoint1) {
+    @media(max-width: $menu-breakpoint-1) {
         width: 100%;
     }
 
@@ -162,14 +162,10 @@
 .color {
     position: absolute;
     top: 0;
-    left: calc(3*var(--pixel-size));
+    left: calc(2*var(--pixel-size));
     mix-blend-mode: hue;
 }
 
 .menu-item-border:hover .color {
-    left: calc(2*var(--pixel-size));
-}
-
-@keyframes scroll {
-
+    left: calc(1*var(--pixel-size));
 }

@@ -26,7 +26,7 @@
     font-size: calc(4.5*var(--pixel-size));
     overflow: hidden;
 
-    @media(max-width: $breakpoint3){
+    @media(max-width: 107svh){
         padding: calc(7*var(--pixel-size));
     }
 }

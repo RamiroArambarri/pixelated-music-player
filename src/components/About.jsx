@@ -2,12 +2,21 @@ import aboutStyles from '../modules/about.module.scss'
 import photo from '/public/media/images/photo.png'
 import Modal from './Modal'
 import Button from './Button'
+import useAspectRatio from '../hooks/useAspectRatio'
 
 const About = ({ setShowAbout, color }) => {
+    const aspectRatio = useAspectRatio()
+
     return (
         <Modal setShowModal={setShowAbout} color={color} width={'70vw'}>
+            {aspectRatio > 1.28 &&
+                <img src={photo} alt='Ramiro Arambarri' className={aboutStyles.photo} />
+            }
+
             <h1>Hola!</h1>
-            <img src={photo} alt='Ramiro Arambarri' className={aboutStyles.photo} />
+            {aspectRatio <= 1.28 &&
+                <img src={photo} alt='Ramiro Arambarri' className={aboutStyles.photo} />
+            }
             <p>
                 Este sitio fue íntegramente diseñado y desarrollado por Ramiro Arambarri.<br />
                 Toda la música que se puede reproducir en este sitio ha sido compuesta y producida por Ramiro Arambarri.<br />

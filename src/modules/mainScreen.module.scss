@@ -7,6 +7,7 @@
     background-size: cover;
     cursor: pointer;
 
+
     &:hover {
         .shine {
             background-position: calc(2*var(--pixel-size));
@@ -14,16 +15,9 @@
     }
 }
 
-.mask {
-    width: 100%;
-    height: 100%;
-    background-image: url(/public/media/images/main-screen-mask.png);
-    background-size: cover;
-}
-
 .screen {
-    width: 100%;
-    height: auto;
+    width:  var(--main-screen-width);
+    height: var(--main-screen-height);
     mask-image: url(/public/media/images/main-screen-mask.png);
     mask-size: 100%;
 }

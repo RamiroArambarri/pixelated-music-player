@@ -1,22 +1,17 @@
-$breakpoint1: 164svh;
-$breakpoint2: 113svh;
-$breakpoint3: 100svh;
-$breakpoint4: 79svh;
-$breakpoint5: 58svh;
-
-
-$border-width: 15;
+$menu-breakpoint-1: 181svh;
+$square-version: 128svh;
+$portrait-version: 69svh;
+$mobile-version: 58svh;
+$border-width: 17;
 
 :root {
-  --pixel-size: #{$border-width/25 + svh};
+  --pixel-size: round(down, 0.67svh, 1px);
 
   @media (orientation: portrait) {
-    --pixel-size: #{$border-width/25 + vw};
+    --pixel-size: round(down, 0.67vw, 1px);
   }
 
-  @media (max-width: $breakpoint5) {
-    --pixel-size: #{$border-width/19 + vw};
-  }
+
 
   --main-screen-width: calc(111*var(--pixel-size));
   --main-screen-height: calc(60*var(--pixel-size));
@@ -26,21 +21,6 @@ $border-width: 15;
   --menu-border-width: calc(8*var(--pixel-size));
   --time-bar-width: var(--main-screen-width);
 }
-
-$pixel-size-landscape: $border-width/25 + svh;
-
-$main-screen-width: calc(111*$pixel-size-landscape);
-$main-screen-height: calc(60*$pixel-size-landscape);
-
-$title-screen-width: calc(159*$pixel-size-landscape);
-$title-screen-height: calc(21*$pixel-size-landscape);
-
-$menu-width: calc(81*$pixel-size-landscape);
-
-$time-bar-width: $main-screen-width;
-
-
-
 
 @font-face {
   font-family: Nokia;

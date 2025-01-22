@@ -8,6 +8,10 @@
     position: relative;
     overflow: hidden;
     text-wrap: nowrap;
+
+    @media(max-width: $square-version) {
+        margin: calc(6*var(--pixel-size)) auto;
+    }
 }
 
 
@@ -15,9 +19,9 @@
     font-size: calc(7*var(--pixel-size-landscape));
     line-height: var(--title-screen-height);
     vertical-align: middle;
+    min-width: 100%;
     margin: 0 2rem;
     padding: 0 calc(4*var(--pixel-size-landscape));
-    width: 100%;
     position: absolute;
 
     &-clone {
@@ -48,17 +52,17 @@
     }
 
     100% {
-        transform: translate(-150%);
+        transform: translate(-110%);
     }
 }
 
 @keyframes scroll2 {
     0% {
-        transform: translate(150%);
+        transform: translate(110%);
     }
 
     20% {
-        transform: translate(150%);
+        transform: translate(110%);
     }
 
     100% {

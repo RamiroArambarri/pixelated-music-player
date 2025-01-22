@@ -25,16 +25,17 @@ body {
   align-items: center;
   justify-content: space-evenly;
 
-  @media(max-width: $breakpoint1) {
+  @media(max-width: $menu-breakpoint-1) {
     width: 100%;
   }
 
-  @media(max-width: $breakpoint3) {
-    justify-content: space-evenly;
-    
+  @media(max-width: $square-version) {
+    justify-content: center;
   }
 
-  @media(max-width: $breakpoint4) {
+
+
+  @media(max-width: $portrait-version) {
     padding: calc(30vh - 100vw/3) 0;
     justify-content: space-between;
     

@@ -8,6 +8,12 @@ const Controls = ({ currentSong, setCurrentSong, songRef }) => {
     const [paused, setPaused] = useState(true)
     const colorDivsRef = useRef([])
 
+    useState(() => {
+        if (songRef.current) {
+            setPaused(songRef.current.paused)
+        }
+    }, [])
+
     const playButtonHandler = () => {
         songRef.current.play()
         setPaused(false)
@@ -71,7 +77,7 @@ const TimeBar = ({ color, songRef }) => {
         }
     }, [])
 
-    
+
     useColor(colorDivRef, 'backgroundColor', color)
 
     const changeHandler = (ev) => {

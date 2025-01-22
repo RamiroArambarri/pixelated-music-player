@@ -3,9 +3,16 @@
 .time-bar {
     width: var(--time-bar-width);
     height: calc(3*var(--pixel-size));
-    max-width: 80%;
+
     position: relative;
     margin: 0 auto;
+
+    @media(max-width: $square-version) {
+        margin: 0 auto calc(3*var(--pixel-size)) ;
+        width: calc(var(--main-screen-width) - 10*var(--pixel-size));
+    }
+
+    
 }
 
 .main-rectangle {

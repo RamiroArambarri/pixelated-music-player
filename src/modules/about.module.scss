@@ -6,12 +6,8 @@
     height: auto;
     border: solid rgb(106, 94, 106) calc(2*var(--pixel-size));
 
-    
-    @media(max-width: $breakpoint1) {
-        width: 20%;
-    }
 
-    @media(max-width: $breakpoint3) {
+    @media(max-width: 107svh) {
         width: 30%;
     }
 }

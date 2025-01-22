@@ -1,6 +1,8 @@
 @import './_variables.module.scss';
 
 .background {
+  --border-width: calc(25*var(--pixel-size));
+
   position: absolute;
   bottom: 0;
   left: 0;
@@ -13,11 +15,12 @@
     url(/public/media/images/body-right-border.png), url(/public/media/images/body-bottom-border.png);
   background-position: top left, top right, bottom left, bottom right, top, left, right, bottom;
   background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-x, repeat-y, repeat-y, repeat-x;
-  background-size: $border-width + svh auto, $border-width + svh auto, $border-width + svh auto, $border-width + svh auto,
-    auto $border-width + svh, $border-width + svh auto, $border-width + svh auto, auto $border-width + svh;
+  background-size: var(--border-width) auto, var(--border-width) auto, var(--border-width) auto, var(--border-width) auto,
+    auto var(--border-width), var(--border-width) auto, var(--border-width) auto, auto var(--border-width);
 
   @media (orientation: portrait) {
-    background-size: $border-width + vw auto, $border-width + vw auto, $border-width + vw auto, $border-width + vw auto,
-      auto $border-width + vw, $border-width + vw auto, $border-width + vw auto, auto $border-width + vw;
+    background-size: var(--border-width) auto, var(--border-width) auto, var(--border-width) auto, var(--border-width) auto,
+      auto var(--border-width), var(--border-width) auto, var(--border-width) auto, auto var(--border-width);
   }
 }
+

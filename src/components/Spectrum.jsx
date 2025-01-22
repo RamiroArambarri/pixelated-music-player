@@ -9,6 +9,7 @@ const Spectrum = ({ source, context, state, dir, bins = 4 }) => {
 
   const updateSpectrum = () => {
     analyser.current.getByteFrequencyData(values.current)
+
     barRef.current.forEach((bar, index) => {
       if (bar) {
         if (dir == 'lr') {
@@ -19,6 +20,8 @@ const Spectrum = ({ source, context, state, dir, bins = 4 }) => {
 
       }
     });
+
+
     animationFrameId.current = requestAnimationFrame(updateSpectrum);
   };
 
