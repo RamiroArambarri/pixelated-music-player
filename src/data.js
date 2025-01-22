@@ -46,7 +46,7 @@ const songs = [
         youtubeURL: 'https://youtu.be/_UCQefEujI8',
         image: '/pixelated-music-player/media/images/song-images/noctambularia.png',
         color: 'rgb(202, 150, 0)'
-    },
+    }
 ]
 
 export default songs

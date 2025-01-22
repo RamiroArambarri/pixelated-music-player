@@ -16,7 +16,7 @@ import useAspectRatio from './hooks/useAspectRatio'
 
 
 const App = () => {
-  console.log('v1.2.0')
+  console.log('v1.2.1')
 
   const aspectRatio = useAspectRatio()
 
