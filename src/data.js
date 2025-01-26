@@ -13,7 +13,7 @@ const songs = [
         fileURL: '/pixelated-music-player/media/music/movimiento-planetario.mp3',
         youtubeURL: 'https://youtu.be/_Vu2VSeskDA',
         image: '/pixelated-music-player/media/images/song-images/bitsonia.png',
-        color: 'rgb(104, 72, 190)'
+        color: 'rgb(104, 144, 190)'
     },
     {
         title: 'Ciudad oscura',
@@ -21,7 +21,7 @@ const songs = [
         fileURL: '/pixelated-music-player/media/music/ciudad-oscura.mp3',
         youtubeURL: 'https://youtu.be/_Vu2VSeskDA',
         image: '/pixelated-music-player/media/images/song-images/bitsonia.png',
-        color: 'rgb(104, 72, 190)'
+        color: 'rgb(104, 144, 190)'
     },
     {
         title: 'Reencuentro',
@@ -29,7 +29,7 @@ const songs = [
         fileURL: '/pixelated-music-player/media/music/reencuentro.mp3',
         youtubeURL: 'https://youtu.be/_Vu2VSeskDA',
         image: '/pixelated-music-player/media/images/song-images/bitsonia.png',
-        color: 'rgb(104, 72, 190)'
+        color: 'rgb(104, 144, 190)'
     },
     {
         title: 'Tras la frontera',
@@ -37,7 +37,7 @@ const songs = [
         fileURL: '/pixelated-music-player/media/music/tras-la-frontera.mp3',
         youtubeURL: 'https://youtu.be/_Vu2VSeskDA',
         image: '/pixelated-music-player/media/images/song-images/bitsonia.png',
-        color: 'rgb(104, 72, 190)'
+        color: 'rgb(104, 144, 190)'
     },
     {
         title: 'Noctambularia',
