@@ -6,7 +6,6 @@ import Button from './Button'
 
 const Controls = ({ currentSong, setCurrentSong, songRef }) => {
     const [paused, setPaused] = useState(true)
-    const colorDivsRef = useRef([])
 
     useState(() => {
         if (songRef.current) {
@@ -67,9 +66,14 @@ const TimeBar = ({ color, songRef }) => {
 
     useEffect(() => {
         const changeTime = () => {
+            console.log('Tiempo cambiado')
             rangeRef.current.value = songRef.current.currentTime
-            const progress = 100 * songRef.current.currentTime / songRef.current.duration
+            const progress = 100 * songRef.current.currentTime / rangeRef.current.max
             progressBarRef.current.style.width = `${progress}%`
+            console.log(songRef.current.currentTime)
+            console.log(songRef.current.duration)
+            console.log(progress)
+            console.log(progressBarRef.current.style.width)
         }
         songRef.current.addEventListener('timeupdate', changeTime)
         return () => {

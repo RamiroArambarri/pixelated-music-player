@@ -32,6 +32,7 @@ const App = () => {
     let isPaused = songRef.current.paused
     let isEnded = songRef.current.ended
     songRef.current.src = songs[currentSong].fileURL
+    songRef.current.currentTime = 0
     if (!isPaused || isEnded) songRef.current.play()
   }, [currentSong]
   )
