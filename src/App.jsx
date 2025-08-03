@@ -16,7 +16,7 @@ import useAspectRatio from './hooks/useAspectRatio'
 
 
 const App = () => {
-  console.log('v1.2.2')
+  console.log('v1.2.3')
 
   const aspectRatio = useAspectRatio()
 
@@ -25,6 +25,7 @@ const App = () => {
   const [showViewInYoutube, setShowViewInYoutube] = useState(false)
   const [audioContext, setAudioContext] = useState()
   const [audioNodes, setAudioNodes] = useState([])
+  const [paused, setPaused] = useState(true)
   const songRef = useRef(null)
 
 
@@ -32,10 +33,40 @@ const App = () => {
     let isPaused = songRef.current.paused
     let isEnded = songRef.current.ended
     songRef.current.src = songs[currentSong].fileURL
-    songRef.current.currentTime = 0
     if (!isPaused || isEnded) songRef.current.play()
   }, [currentSong]
   )
+
+  useEffect(() => {
+    if(paused) {
+      songRef.current.pause()
+    } else {
+      songRef.current.play()
+    }
+  }, [paused]
+  )
+
+  useEffect(() => {
+    songRef.current.addEventListener('ended', pausePlayHandler)
+    songRef.current.addEventListener('paused', pausePlayHandler)
+    songRef.current.addEventListener('play', pausePlayHandler)
+
+    return () => {
+      songRef.current.removeEventListener('ended', pausePlayHandler)
+      songRef.current.removeEventListener('paused', pausePlayHandler)
+      songRef.current.removeEventListener('play', pausePlayHandler)
+    }
+  }, []
+  )
+
+  const pausePlayHandler = () => {
+    'Se activó el handler'
+    if(songRef.current.paused) {
+      setPaused(true)
+    } else {
+      setPaused(false)
+    }
+  }
 
 
   const handleInteraction = () => {
@@ -102,7 +133,7 @@ const App = () => {
           <div className='bottom-container'>
             <LogoButton onClick={() => setShowAbout(true)} />
             <div className='controls-container'>
-              <Controls currentSong={currentSong} setCurrentSong={setCurrentSong} songRef={songRef} />
+              <Controls currentSong={currentSong} paused={paused} setPaused={setPaused} setCurrentSong={setCurrentSong} songRef={songRef} />
             </div>
             <Volume songRef={songRef} currentSong={currentSong} />
           </div>
@@ -110,7 +141,7 @@ const App = () => {
           <>
             <Volume songRef={songRef} currentSong={currentSong} />
             <div className='controls-container'>
-              <Controls currentSong={currentSong} setCurrentSong={setCurrentSong} songRef={songRef} />
+              <Controls currentSong={currentSong} paused={paused} setPaused={setPaused} setCurrentSong={setCurrentSong} songRef={songRef} />
             </div>
             <LogoButton onClick={() => setShowAbout(true)} />
           </>

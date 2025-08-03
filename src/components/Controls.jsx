@@ -4,24 +4,15 @@ import timeBarStyles from "../modules/timeBar.module.scss"
 import useColor from '../hooks/useColor'
 import Button from './Button'
 
-const Controls = ({ currentSong, setCurrentSong, songRef }) => {
-    const [paused, setPaused] = useState(true)
+const Controls = ({ currentSong, setCurrentSong, songRef, paused, setPaused }) => {
 
-    useState(() => {
-        if (songRef.current) {
-            setPaused(songRef.current.paused)
+    useEffect(() => {
+        if (songRef.current.paused) {
+            setPaused(true)
+        } else {
+            setPaused(false)
         }
-    }, [])
-
-    const playButtonHandler = () => {
-        songRef.current.play()
-        setPaused(false)
-    }
-
-    const pauseButtonHandler = () => {
-        songRef.current.pause()
-        setPaused(true)
-    }
+    }, [currentSong])
 
     const changeSongHandler = (dir) => {
         if (dir == 'prev') {
@@ -31,15 +22,13 @@ const Controls = ({ currentSong, setCurrentSong, songRef }) => {
         }
     }
 
-
-
     return (
         <>
             <TimeBar color={songs[currentSong].color} songRef={songRef} />
             <div>
                 <Button type='previous' ariaLabel='Previous' onClick={() => changeSongHandler('prev')} color={songs[currentSong].color} />
-                <Button type='play' ariaLabel='Play' onClick={playButtonHandler} selectedCondition={!paused} color={songs[currentSong].color} />
-                <Button type='pause' ariaLabel='Pause' onClick={pauseButtonHandler} selectedCondition={paused} color={songs[currentSong].color} />
+                <Button type='play' ariaLabel='Play' onClick={() => setPaused(false)} selectedCondition={!paused} color={songs[currentSong].color} />
+                <Button type='pause' ariaLabel='Pause' onClick={() => setPaused(true)} selectedCondition={paused} color={songs[currentSong].color} />
                 <Button type='next' ariaLabel='Next' onClick={() => changeSongHandler('next')} color={songs[currentSong].color} />
             </div>
         </>
@@ -66,14 +55,9 @@ const TimeBar = ({ color, songRef }) => {
 
     useEffect(() => {
         const changeTime = () => {
-            console.log('Tiempo cambiado')
             rangeRef.current.value = songRef.current.currentTime
             const progress = 100 * songRef.current.currentTime / rangeRef.current.max
             progressBarRef.current.style.width = `${progress}%`
-            console.log(songRef.current.currentTime)
-            console.log(songRef.current.duration)
-            console.log(progress)
-            console.log(progressBarRef.current.style.width)
         }
         songRef.current.addEventListener('timeupdate', changeTime)
         return () => {

@@ -1,5 +1,13 @@
 const songs = [
     {
+        title: 'Cereza',
+        extTitle: 'Cereza - Ramiro Arambarri',
+        fileURL: '/pixelated-music-player/media/music/cereza.wav',
+        youtubeURL: 'https://youtu.be/LBXsWesTFFw',
+        image: '/pixelated-music-player/media/images/song-images/cereza.png',
+        color: 'rgb(204, 21, 82)'
+    },
+    {
         title: 'Pandora',
         extTitle: 'Pandora - Ramiro Arambarri',
         fileURL: '/pixelated-music-player/media/music/pandora.mp3',
